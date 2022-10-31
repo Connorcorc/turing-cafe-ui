@@ -17,3 +17,16 @@
   font-family: 'Pacifico', cursive;
   font-size: 50px;
 }
+
+.make-res {
+  color: teal;
+  background-color: white;
+  margin: 50px;
+  padding:15px;
+  border: 5px solid black;
+  box-sizing: border-box;
+}
+
+main {
+  width: 100vw;
+}

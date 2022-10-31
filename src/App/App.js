@@ -11,6 +11,11 @@ class App extends Component {
     }
   }
 
+  componentDidMount = () => {
+    fetch('http://localhost:3001/api/v1/reservations')
+    .then(response => response.json())
+    .then(data => this.setState({ reservations: data }))
+  }
   addReservation = (newReservation) => {
     this.setState({reservations: [...this.state.reservations, newReservation]})
   }
@@ -27,7 +32,7 @@ class App extends Component {
         <Form addReservation={this.addReservation}/>
         </div>
         <div className='resy-container'>
-        {!this.state.reservations.length && <h2>Please Make a Reservation!</h2>}
+        {!this.state.reservations.length && <h2 className="make-res">Please Make a Reservation!</h2>}
         <Reservation reservations={this.state.reservations} deleteReservation={this.deleteReservation} />
         </div>
       </main>

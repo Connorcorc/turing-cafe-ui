@@ -31,7 +31,7 @@ class Form extends Component {
       name: '',
       date: '',
       time: '',
-      guests: ''
+      guests: 0
     })
   }
 

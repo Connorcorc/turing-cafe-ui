@@ -5,12 +5,12 @@ import Card from '../Card/Card.js'
 const Reservation = ({reservations, deleteReservation}) => {
   const reservationCard = reservations.map(reservation => {
     return (
-      <Card name={reservation.name} date={reservation.date} time={reservation.time} id={reservation.id} key={reservation.id} deleteReservation={deleteReservation} />
+      <Card name={reservation.name} date={reservation.date} time={reservation.time} guests= {reservation.guests} id={reservation.id} key={reservation.id} deleteReservation={deleteReservation} />
     )
   })
 
   return (
-    <div className="resContainer">
+    <div className="res-container">
       {reservationCard}
     </div>
   )

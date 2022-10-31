@@ -6,8 +6,8 @@ const Card = ({name, date, time, guests, id, deleteReservation}) => {
     <div className='card'>
       <h2>{name}</h2>
       <p>{date}</p>
-      <p>{time}</p>
-      <p>{guests}</p>
+      <p>Time: {time}</p>
+      <p>Number of Guests: {guests}</p>
       <button onClick={() => deleteReservation(id)}>Cancel</button>
     </div>
   )
