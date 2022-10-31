@@ -16,8 +16,20 @@ class App extends Component {
     .then(response => response.json())
     .then(data => this.setState({ reservations: data }))
   }
+
   addReservation = (newReservation) => {
     this.setState({reservations: [...this.state.reservations, newReservation]})
+  }
+
+  postData = async (newReservation) => {
+    const response = await fetch('http://localhost:3001/api/v1/reservations/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newReservation),
+    })
+    const data = await response.json()
+    console.log(data)
+    console.log(newReservation)
   }
 
   deleteReservation = (id) => {
@@ -29,7 +41,7 @@ class App extends Component {
       <main className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
         <div className='resy-form'>
-        <Form addReservation={this.addReservation}/>
+        <Form addReservation={this.addReservation} postData={this.postData}/>
         </div>
         <div className='resy-container'>
         {!this.state.reservations.length && <h2 className="make-res">Please Make a Reservation!</h2>}

@@ -8,7 +8,7 @@ class Form extends Component {
       name: '',
       date: '',
       time: '',
-      guests: 0
+      guests: ''
     }
   }
 
@@ -17,12 +17,14 @@ class Form extends Component {
   }
 
   makeReservation = event => {
+
     event.preventDefault()
     const newReservation = {
       id: Date.now(),
       ...this.state
     }
     this.props.addReservation(newReservation)
+    this.props.postData(newReservation)
     this.clearInput()
   }
 
@@ -31,7 +33,7 @@ class Form extends Component {
       name: '',
       date: '',
       time: '',
-      guests: 0
+      guests: ''
     })
   }
 
